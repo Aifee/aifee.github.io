@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aifee.github.io">
-  <title>Aifee</title>
+  <title>Tag: Unity编辑器扩展 | Aifee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录成长">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aifee">
-<meta property="og:url" content="http://aifee.github.io/index.html">
+<meta property="og:url" content="http://aifee.github.io/tags/Unity编辑器扩展/index.html">
 <meta property="og:site_name" content="Aifee">
 <meta property="og:description" content="记录成长">
 <meta property="og:locale" content="ch">
@@ -155,57 +155,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-UI预设生成代码批量动态获取组件工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/26/UI预设生成代码批量动态获取组件工具/" class="archive-article-date">
+  	<time datetime="2018-02-26T08:27:26.959Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/UI预设生成代码批量动态获取组件工具/">UI预设生成代码批量获取组件工具</a>
+      <a class="archive-article-title" href="/2018/02/26/UI预设生成代码批量动态获取组件工具/">UI预设生成代码批量获取组件工具</a>
     </h1>
   
 
-        
-        <a href="/2018/02/26/UI预设生成代码批量动态获取组件工具/" class="archive-article-date">
-  	<time datetime="2018-02-26T08:27:26.959Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近在写UI面板功能时发现每一个UI预设对应UI逻辑脚本在获取组件时需要很繁琐的代码<strong>(通常为了解耦，UI预设上是不会挂载脚本的，只有通用的组件会挂载上去)</strong>。而我们大部分逻辑是用lua来处理，虽然使用SublimeText,但补全功能始终不如VS中编辑C#那么友好。</p>
-</blockquote>
-<blockquote>
-<p>先看一下我们的需求</p>
-</blockquote>
-<pre><code>self.input_account = self:GetChildCompByObj(&quot;input_account&quot;,&quot;UnityEngine.UI.InputField&quot;);
-self.input_password = self:GetChildCompByObj(&quot;input_password&quot;,&quot;UnityEngine.UI.InputField&quot;);
-self.btn_login = self:GetChildCompByObj(&quot;btn_login&quot;,&quot;UnityEngine.UI.Button&quot;);
-self.btn_register = self:GetChildCompByObj(&quot;btn_register&quot;,&quot;UnityEngine.UI.Button&quot;);
-</code></pre><blockquote>
-<p>这是我的UI逻辑中在获取组件的一段代码，如果一个UI面板中存在大量很复杂的组件时想想就够恐怖的，维护起来也很麻烦，好在这种情况是有规律性的，对于程序猿来说能偷懒就偷懒。我要去做的一个工具就是去生成这一段代码。</p>
-</blockquote>
-<blockquote>
-<p>再来看一下最后做出来的东西是什么样的<br><img src="../../img/UIElementGenerate/Preview.jpg" alt="预览图"></p>
-</blockquote>
-<blockquote>
-<p>这个工具最重要的是左边那个树组件</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ShowObject</span><span class="params">(UIElementTreeItem item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GUILayout.BeginVertical();</span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.BeginHorizontal();</span><br><span class="line">        &#123;</span><br><span class="line">            GUILayout.Space(item.Depth * <span class="number">20</span> + <span class="number">5</span>);</span><br><span class="line">            item.IsOpen = Foldout(item, item.IsOpen);</span><br><span class="line">        &#125;</span><br><span class="line">        GUILayout.EndHorizontal();</span><br><span class="line">        <span class="keyword">if</span> (item.IsOpen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (item.childs != <span class="keyword">null</span> &amp;&amp; item.childs.Count &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; item.childs.Count; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (trees.ContainsKey(item.childs[i]))</span><br><span class="line">                    &#123;</span><br><span class="line">                        UIElementTreeItem child = trees[item.childs[i]];</span><br><span class="line">                        <span class="keyword">if</span> (child != <span class="keyword">null</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            ShowObject(child);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    GUILayout.EndVertical();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 自定义折叠页</span></span><br><span class="line"><span class="comment">/// 如果当前操作的组件没有子对象，则折叠功能取消，点击后相应选中或未选中状态</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name="item"&gt; 操作的对象 &lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name="display"&gt; 是否折叠 &lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;returns&gt;&lt;/returns&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> bool <span class="title">Foldout</span><span class="params">(UIElementTreeItem item, bool display)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    bool isFoldout = item.childs != <span class="keyword">null</span> &amp;&amp; item.childs.Count &gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">///Box样式</span></span><br><span class="line">    GUIStyle style = <span class="keyword">new</span> GUIStyle(<span class="string">"ShurikenModuleTitle"</span>);</span><br><span class="line">    style.font = <span class="keyword">new</span> GUIStyle(EditorStyles.label).font;</span><br><span class="line">    style.border = <span class="keyword">new</span> RectOffset(<span class="number">15</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">    style.fixedHeight = <span class="number">22</span>;</span><br><span class="line">    style.contentOffset = <span class="keyword">new</span> Vector2(isFoldout ? <span class="number">35f</span> : <span class="number">20f</span>, -<span class="number">2f</span>);</span><br><span class="line">    <span class="comment">///绘制box</span></span><br><span class="line">    Rect rect = GUILayoutUtility.GetRect(<span class="number">16f</span>, <span class="number">22f</span>, style);</span><br><span class="line">    GUI.Box(rect, item.Name, style);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isFoldout)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">///每一项是否能显示的Toggle</span></span><br><span class="line">        Rect selectedRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">18f</span>, rect.y, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        item.IsGenerate = GUI.Toggle(selectedRect, item.IsGenerate, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">        Event e = Event.current;</span><br><span class="line">        Rect toggleRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">4f</span>, rect.y + <span class="number">2f</span>, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.Repaint)</span><br><span class="line">        &#123;</span><br><span class="line">            EditorStyles.foldout.Draw(toggleRect, <span class="keyword">false</span>, <span class="keyword">false</span>, display, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.MouseDown &amp;&amp; rect.Contains(e.mousePosition))</span><br><span class="line">        &#123;</span><br><span class="line">            display = !display;</span><br><span class="line">            e.Use();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Event e = Event.current;</span><br><span class="line">        Rect toggleRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">4f</span>, rect.y, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.Repaint)</span><br><span class="line">        &#123;</span><br><span class="line">            EditorStyles.toggle.Draw(toggleRect, <span class="keyword">false</span>, <span class="keyword">false</span>, item.IsGenerate, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.MouseDown &amp;&amp; rect.Contains(e.mousePosition))</span><br><span class="line">        &#123;</span><br><span class="line">            item.IsGenerate = !item.IsGenerate;</span><br><span class="line">            e.Use();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> display;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>具体代码我可以到我的<a href="https://github.com/Aifee/UIElementGenerate.git" target="_blank" rel="noopener">Github</a>下载</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -225,124 +202,19 @@ self.btn_register = self:GetChildCompByObj(&quot;btn_register&quot;,&quot;UnityE
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/UI预设生成代码批量动态获取组件工具/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hello-Hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/23/hello-Hexo/">Hello hexo</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/23/hello-Hexo/" class="archive-article-date">
-  	<time datetime="2018-02-23T08:46:22.535Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="——-前言-——"><a href="#——-前言-——" class="headerlink" title="—— 前言 ——"></a>—— 前言 ——</h2><p>一直想做一个个人博客，平时学习的东西可以记录一下。种种原因一直拖延到现在，新年新气象，只要开始搞，什么时候都不算晚。</p>
-<p>选择<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>也是经过了各种搜索才选定的，具体为什么选大家可以<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a>去。我的初衷很简单，不需要什么动态的，只需要有个能记录学习的地方就行。所以，静态博客对于我来说完全满足。</p>
-<h3 id="一、搭建"><a href="#一、搭建" class="headerlink" title="一、搭建"></a>一、搭建</h3><p>网上有很多教程写的都很不错，说的也详细。我这里只是推荐几个，我也是通过这几个网站及博客弄好的。</p>
-<p>首先第一个首推<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo官方文档</a>，先要明白Hexo的一些基本东西，我对web也是一点不通，可以算做一个小白，我是做Unity3d游戏的，游戏和web差距还是很大的。</p>
-<p>其次是segmentfault上一篇<a href="https://segmentfault.com/a/1190000004947261" target="_blank" rel="noopener">lhc写的文章</a>，基本我就是按这篇文章来部署的，网上所说的什么几分钟搞定一个博客之类的文章都是有针对的，那是有一定编程基础的人才能够做到。这里面用到两个技术要点，一个是NodeJS，一个是Git。NodeJS只需要安装就行，不需要其他的。至于Git，需要好好学习一下，毕竟博客框架及主题都得代码都放在Git上呢。如果你的个人博客部署到Git上，那更得需要好好了解了。</p>
-<p>再次是<a href="http://tigerliu.site/2017/06/hexo-1/" target="_blank" rel="noopener">Tigerliu</a>的，他写的Hexo高级进阶也不错。讲的挺详细。主题如何设置，绑定域名等。</p>
-<h3 id="二、写作"><a href="#二、写作" class="headerlink" title="二、写作"></a>二、写作</h3><p>Hexo是一个静态博客，需要一台电脑搭建好环境，使用MarkDown来写作，然后生成及部署。那我们就需要一个MarkDown编辑器来本地写作了。我使用的是<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>，记得的MarkDown语法要会，当然想写出很好的布局需要精通，我也是在学习中。</p>
-<p>通常部署完Hexo会有一个Hello World的文章，如果想删除的话只要把source/_posts/hello-world.md文件删除后从新编译部署后就会删除。</p>
-<hr>
-<p>希望我的一点点经历能够帮助一些需要的人。后续会慢慢进行写作，把学到的东西一点点分享给大家。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/23/hello-Hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -364,10 +236,10 @@ self.btn_register = self:GetChildCompByObj(&quot;btn_register&quot;,&quot;UnityE
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: false,
