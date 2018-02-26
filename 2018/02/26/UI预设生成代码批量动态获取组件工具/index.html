@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aifee.github.io">
-  <title>Archives: 2018 | Aifee</title>
+  <title>Aifee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录成长">
-<meta property="og:type" content="website">
+  <meta name="description" content="UI预设生成代码批量获取组件工具 最近在写UI面板功能时发现每一个UI预设对应UI逻辑脚本在获取组件时需要很繁琐的代码(通常为了解耦，UI预设上是不会挂载脚本的，只有通用的组件会挂载上去)。而我们大部分逻辑是用lua来处理，虽然使用SublimeText,但补全功能始终不如VS中编辑C#那么友好。   先看一下我们的需求  self.input_account = self:GetChildCom">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Aifee">
-<meta property="og:url" content="http://aifee.github.io/archives/2018/index.html">
+<meta property="og:url" content="http://aifee.github.io/2018/02/26/UI预设生成代码批量动态获取组件工具/index.html">
 <meta property="og:site_name" content="Aifee">
-<meta property="og:description" content="记录成长">
+<meta property="og:description" content="UI预设生成代码批量获取组件工具 最近在写UI面板功能时发现每一个UI预设对应UI逻辑脚本在获取组件时需要很繁琐的代码(通常为了解耦，UI预设上是不会挂载脚本的，只有通用的组件会挂载上去)。而我们大部分逻辑是用lua来处理，虽然使用SublimeText,但补全功能始终不如VS中编辑C#那么友好。   先看一下我们的需求  self.input_account = self:GetChildCom">
 <meta property="og:locale" content="ch">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UIElementGenerate/Preview.jpg">
+<meta property="og:updated_time" content="2018-02-26T10:17:57.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aifee">
-<meta name="twitter:description" content="记录成长">
+<meta name="twitter:description" content="UI预设生成代码批量获取组件工具 最近在写UI面板功能时发现每一个UI预设对应UI逻辑脚本在获取组件时需要很繁琐的代码(通常为了解耦，UI预设上是不会挂载脚本的，只有通用的组件会挂载上去)。而我们大部分逻辑是用lua来处理，虽然使用SublimeText,但补全功能始终不如VS中编辑C#那么友好。   先看一下我们的需求  self.input_account = self:GetChildCom">
+<meta name="twitter:image" content="http://aifee.github.io/2018/02/img/UIElementGenerate/Preview.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Aifee" type="application/atom+xml">
   
@@ -153,70 +156,227 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-UI预设生成代码批量动态获取组件工具" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="UI预设生成代码批量获取组件工具"><a href="#UI预设生成代码批量获取组件工具" class="headerlink" title="UI预设生成代码批量获取组件工具"></a>UI预设生成代码批量获取组件工具</h1><blockquote>
+<p>最近在写UI面板功能时发现每一个UI预设对应UI逻辑脚本在获取组件时需要很繁琐的代码<strong>(通常为了解耦，UI预设上是不会挂载脚本的，只有通用的组件会挂载上去)</strong>。而我们大部分逻辑是用lua来处理，虽然使用SublimeText,但补全功能始终不如VS中编辑C#那么友好。</p>
+</blockquote>
+<blockquote>
+<p>先看一下我们的需求</p>
+</blockquote>
+<pre><code>self.input_account = self:GetChildCompByObj(&quot;input_account&quot;,&quot;UnityEngine.UI.InputField&quot;);
+self.input_password = self:GetChildCompByObj(&quot;input_password&quot;,&quot;UnityEngine.UI.InputField&quot;);
+self.btn_login = self:GetChildCompByObj(&quot;btn_login&quot;,&quot;UnityEngine.UI.Button&quot;);
+self.btn_register = self:GetChildCompByObj(&quot;btn_register&quot;,&quot;UnityEngine.UI.Button&quot;);
+</code></pre><blockquote>
+<p>这是我的UI逻辑中在获取组件的一段代码，如果一个UI面板中存在大量很复杂的组件时想想就够恐怖的，维护起来也很麻烦，好在这种情况是有规律性的，对于程序猿来说能偷懒就偷懒。我要去做的一个工具就是去生成这一段代码。</p>
+</blockquote>
+<blockquote>
+<p>再来看一下最后做出来的东西是什么样的<br><img src="../../img/UIElementGenerate/Preview.jpg" alt="预览图"></p>
+</blockquote>
+<blockquote>
+<p>这个工具最重要的是左边那个树组件</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ShowObject</span><span class="params">(UIElementTreeItem item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GUILayout.BeginVertical();</span><br><span class="line">    &#123;</span><br><span class="line">        GUILayout.BeginHorizontal();</span><br><span class="line">        &#123;</span><br><span class="line">            GUILayout.Space(item.Depth * <span class="number">20</span> + <span class="number">5</span>);</span><br><span class="line">            item.IsOpen = Foldout(item, item.IsOpen);</span><br><span class="line">        &#125;</span><br><span class="line">        GUILayout.EndHorizontal();</span><br><span class="line">        <span class="keyword">if</span> (item.IsOpen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (item.childs != <span class="keyword">null</span> &amp;&amp; item.childs.Count &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; item.childs.Count; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (trees.ContainsKey(item.childs[i]))</span><br><span class="line">                    &#123;</span><br><span class="line">                        UIElementTreeItem child = trees[item.childs[i]];</span><br><span class="line">                        <span class="keyword">if</span> (child != <span class="keyword">null</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            ShowObject(child);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    GUILayout.EndVertical();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 自定义折叠页</span></span><br><span class="line"><span class="comment">/// 如果当前操作的组件没有子对象，则折叠功能取消，点击后相应选中或未选中状态</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name="item"&gt; 操作的对象 &lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name="display"&gt; 是否折叠 &lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;returns&gt;&lt;/returns&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> bool <span class="title">Foldout</span><span class="params">(UIElementTreeItem item, bool display)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    bool isFoldout = item.childs != <span class="keyword">null</span> &amp;&amp; item.childs.Count &gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">///Box样式</span></span><br><span class="line">    GUIStyle style = <span class="keyword">new</span> GUIStyle(<span class="string">"ShurikenModuleTitle"</span>);</span><br><span class="line">    style.font = <span class="keyword">new</span> GUIStyle(EditorStyles.label).font;</span><br><span class="line">    style.border = <span class="keyword">new</span> RectOffset(<span class="number">15</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">    style.fixedHeight = <span class="number">22</span>;</span><br><span class="line">    style.contentOffset = <span class="keyword">new</span> Vector2(isFoldout ? <span class="number">35f</span> : <span class="number">20f</span>, -<span class="number">2f</span>);</span><br><span class="line">    <span class="comment">///绘制box</span></span><br><span class="line">    Rect rect = GUILayoutUtility.GetRect(<span class="number">16f</span>, <span class="number">22f</span>, style);</span><br><span class="line">    GUI.Box(rect, item.Name, style);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isFoldout)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">///每一项是否能显示的Toggle</span></span><br><span class="line">        Rect selectedRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">18f</span>, rect.y, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        item.IsGenerate = GUI.Toggle(selectedRect, item.IsGenerate, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">        Event e = Event.current;</span><br><span class="line">        Rect toggleRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">4f</span>, rect.y + <span class="number">2f</span>, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.Repaint)</span><br><span class="line">        &#123;</span><br><span class="line">            EditorStyles.foldout.Draw(toggleRect, <span class="keyword">false</span>, <span class="keyword">false</span>, display, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.MouseDown &amp;&amp; rect.Contains(e.mousePosition))</span><br><span class="line">        &#123;</span><br><span class="line">            display = !display;</span><br><span class="line">            e.Use();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Event e = Event.current;</span><br><span class="line">        Rect toggleRect = <span class="keyword">new</span> Rect(rect.x + <span class="number">4f</span>, rect.y, <span class="number">13f</span>, <span class="number">13f</span>);</span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.Repaint)</span><br><span class="line">        &#123;</span><br><span class="line">            EditorStyles.toggle.Draw(toggleRect, <span class="keyword">false</span>, <span class="keyword">false</span>, item.IsGenerate, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (e.type == EventType.MouseDown &amp;&amp; rect.Contains(e.mousePosition))</span><br><span class="line">        &#123;</span><br><span class="line">            item.IsGenerate = !item.IsGenerate;</span><br><span class="line">            e.Use();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> display;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>具体代码我可以到我的<a href="https://github.com/Aifee/UIElementGenerate.git" target="_blank" rel="noopener">Github</a>下载</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixinpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/26/UI预设生成代码批量动态获取组件工具/" class="archive-article-date">
-  	<time datetime="2018-02-26T08:27:26.959Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://aifee.github.io/2018/02/26/UI预设生成代码批量动态获取组件工具/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/23/hello-Hexo/" class="archive-article-date">
-  	<time datetime="2018-02-23T08:46:22.535Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/23/hello-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello hexo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/23/hello-Hexo/">Hello hexo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UI预设生成代码批量获取组件工具"><span class="toc-number">1.</span> <span class="toc-text">UI预设生成代码批量获取组件工具</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="UI预设生成代码批量动态获取组件工具" data-title="" data-url="http://aifee.github.io/2018/02/26/UI预设生成代码批量动态获取组件工具/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://aifee.github.io/2018/02/26/UI预设生成代码批量动态获取组件工具/", 
+    sourceId: "UI预设生成代码批量动态获取组件工具",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+  <div id="SOHUCS" sid="UI预设生成代码批量动态获取组件工具" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -239,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
