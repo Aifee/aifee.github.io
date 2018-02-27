@@ -8,7 +8,9 @@ tags:
      - Attribute
 ---
 
+
 * [CustomEditor](#CustomEditor)
+<!--more-->
 * [ExecuteInEditMode](#ExecuteInEditMode)
 * [MenuItem](#MenuItem)
 * [AddComponentMenu](#AddComponentMenu)
@@ -28,8 +30,6 @@ tags:
 * [Space](#Space)
 * [Tooltip](#Tooltip)
 * [PreferenceItem](#PreferenceItem)
-
-<!--more-->
 
 <h4 id="CustomEditor">CustomEditor</h4>
 ```java

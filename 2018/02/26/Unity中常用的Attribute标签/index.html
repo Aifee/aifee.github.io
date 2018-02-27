@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="ch">
+<html class="theme-next gemini use-motion" lang="ch">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CustomEditor ExecuteInEditMode MenuItem AddComponentMenu ContextMenu ContextMenuItem Multiline &amp;amp; TextArea CreateAssetMenu &amp;amp; PreferBinarySerialization DisallowMultipleComponent Header HelpURL">
+<meta name="description" content="CustomEditor">
 <meta name="keywords" content="Unity,Unity编辑器扩展,Attribute">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity中常用的Attribute标签">
 <meta property="og:url" content="http://aifee.github.io/2018/02/26/Unity中常用的Attribute标签/index.html">
 <meta property="og:site_name" content="Aifee">
-<meta property="og:description" content="CustomEditor ExecuteInEditMode MenuItem AddComponentMenu ContextMenu ContextMenuItem Multiline &amp;amp; TextArea CreateAssetMenu &amp;amp; PreferBinarySerialization DisallowMultipleComponent Header HelpURL">
+<meta property="og:description" content="CustomEditor">
 <meta property="og:locale" content="ch">
 <meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/CustomEditor.png">
 <meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/AddComponentMenu.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Space.png">
 <meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/tooltip.png">
 <meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Preferences.png">
-<meta property="og:updated_time" content="2018-02-27T10:54:41.325Z">
+<meta property="og:updated_time" content="2018-02-27T12:17:58.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity中常用的Attribute标签">
-<meta name="twitter:description" content="CustomEditor ExecuteInEditMode MenuItem AddComponentMenu ContextMenu ContextMenuItem Multiline &amp;amp; TextArea CreateAssetMenu &amp;amp; PreferBinarySerialization DisallowMultipleComponent Header HelpURL">
+<meta name="twitter:description" content="CustomEditor">
 <meta name="twitter:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/CustomEditor.png">
 
 
@@ -109,7 +109,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -322,7 +322,7 @@
 
       
         <ul>
-<li><a href="#CustomEditor">CustomEditor</a></li>
+<li><a href="#CustomEditor">CustomEditor</a><a id="more"></a></li>
 <li><a href="#ExecuteInEditMode">ExecuteInEditMode</a></li>
 <li><a href="#MenuItem">MenuItem</a></li>
 <li><a href="#AddComponentMenu">AddComponentMenu</a></li>
@@ -343,7 +343,6 @@
 <li><a href="#Tooltip">Tooltip</a></li>
 <li><a href="#PreferenceItem">PreferenceItem</a></li>
 </ul>
-<a id="more"></a>
 <p></p><h4 id="CustomEditor">CustomEditor</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 要自定义编辑的脚本</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[CustomEditor(typeof(PlugExtend))]</span><br><span class="line">public class PlugExtendEditor : Editor</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> override <span class="keyword">void</span> <span class="title">OnInspectorGUI</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        PlugExtend extend = target as PlugExtend;</span><br><span class="line">        Vector2 vec = <span class="keyword">new</span> Vector2(extend.min, extend.max);</span><br><span class="line">        vec = EditorGUILayout.Vector2Field(<span class="string">"Min And Max"</span>, vec);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> min;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
 <p><img src="../../img/UnityEditorOptions/CustomEditor.png" alt="效果图"></p>
 <p></p><h4 id="ExecuteInEditMode">ExecuteInEditMode</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 编辑器模式行执行</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[ExecuteInEditMode]</span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 挂载这个脚本后编辑器状态下也能够执行这个方法</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"PlugExtend Awake function"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
@@ -582,7 +581,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
