@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ch">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Unity,Unity编辑器扩展,Attribute," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CustomEditor">
+<meta name="keywords" content="Unity,Unity编辑器扩展,Attribute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity中常用的Attribute标签">
+<meta property="og:url" content="http://aifee.github.io/2018/02/26/Unity-Unity中常用的Attribute标签/index.html">
+<meta property="og:site_name" content="Aifee">
+<meta property="og:description" content="CustomEditor">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/CustomEditor.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/AddComponentMenu.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/ContextMenu.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/ContextMenuItem.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Multiline_TextArea.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/CreateAssetMenu.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Header.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Space.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/tooltip.png">
+<meta property="og:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/Preferences.png">
+<meta property="og:updated_time" content="2018-02-27T12:17:58.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity中常用的Attribute标签">
+<meta name="twitter:description" content="CustomEditor">
+<meta name="twitter:image" content="http://aifee.github.io/2018/02/img/UnityEditorOptions/CustomEditor.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://aifee.github.io/2018/02/26/Unity-Unity中常用的Attribute标签/"/>
+
+
+
+
+
+  <title>Unity中常用的Attribute标签 | Aifee</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ch">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aifee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aifee.github.io/2018/02/26/Unity-Unity中常用的Attribute标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aifee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aifee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Unity中常用的Attribute标签</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T19:43:28+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="#CustomEditor">CustomEditor</a><a id="more"></a></li>
+<li><a href="#ExecuteInEditMode">ExecuteInEditMode</a></li>
+<li><a href="#MenuItem">MenuItem</a></li>
+<li><a href="#AddComponentMenu">AddComponentMenu</a></li>
+<li><a href="#ContextMenu">ContextMenu</a></li>
+<li><a href="#ContextMenuItem">ContextMenuItem</a></li>
+<li><a href="#Multiline &amp; TextArea">Multiline &amp; TextArea</a></li>
+<li><a href="#CreateAssetMenu &amp; PreferBinarySerialization">CreateAssetMenu &amp; PreferBinarySerialization</a></li>
+<li><a href="#DisallowMultipleComponent">DisallowMultipleComponent</a></li>
+<li><a href="#Header">Header</a></li>
+<li><a href="#HelpURL">HelpURL</a></li>
+<li><a href="#HideInInspector">HideInInspector</a></li>
+<li><a href="#Range">Range</a></li>
+<li><a href="#RequireComponent">RequireComponent</a></li>
+<li><a href="#RuntimeInitializeOnLoadMethod">RuntimeInitializeOnLoadMethod</a></li>
+<li><a href="#SelectionBase">SelectionBase</a></li>
+<li><a href="#SerializeField">SerializeField</a></li>
+<li><a href="#Space">Space</a></li>
+<li><a href="#Tooltip">Tooltip</a></li>
+<li><a href="#PreferenceItem">PreferenceItem</a></li>
+</ul>
+<p></p><h4 id="CustomEditor">CustomEditor</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 要自定义编辑的脚本</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[CustomEditor(typeof(PlugExtend))]</span><br><span class="line">public class PlugExtendEditor : Editor</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> override <span class="keyword">void</span> <span class="title">OnInspectorGUI</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        PlugExtend extend = target as PlugExtend;</span><br><span class="line">        Vector2 vec = <span class="keyword">new</span> Vector2(extend.min, extend.max);</span><br><span class="line">        vec = EditorGUILayout.Vector2Field(<span class="string">"Min And Max"</span>, vec);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> min;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/CustomEditor.png" alt="效果图"></p>
+<p></p><h4 id="ExecuteInEditMode">ExecuteInEditMode</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 编辑器模式行执行</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[ExecuteInEditMode]</span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 挂载这个脚本后编辑器状态下也能够执行这个方法</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"PlugExtend Awake function"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="MenuItem">MenuItem</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class PlugExtendEditor : EditorWindow</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 在顶部菜单Tools/OpenWindow菜单</span></span><br><span class="line">    <span class="comment">/// %#&amp;u 快捷键 Ctrl + Shift + Alt + U</span></span><br><span class="line">    <span class="comment">/// false 验证函数为false的情况下不激活</span></span><br><span class="line">    <span class="comment">/// 11 菜单中的显示顺序权重</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [MenuItem(<span class="string">"Tools/OpenWindow  %#&amp;u"</span>, <span class="keyword">false</span>, <span class="number">11</span>)]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Open</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        PlugExtendEditor window = EditorWindow.CreateInstance&lt;PlugExtendEditor&gt;();</span><br><span class="line">        window.Show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 验证函数</span></span><br><span class="line">    <span class="comment">/// false 的情况下Tools/OpenWindow菜单无效</span></span><br><span class="line">    <span class="comment">/// true 的情况下Tools/OpenWindow菜单激活</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    <span class="comment">/// &lt;returns&gt;&lt;/returns&gt;</span></span><br><span class="line">    [MenuItem(<span class="string">"Tools/OpenWindow %#&amp;u"</span>, <span class="keyword">true</span>, <span class="number">11</span>)]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> bool <span class="title">ValidateOpen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        bool validate = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//验证是否打开窗口条件</span></span><br><span class="line">        <span class="keyword">return</span> validate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 在齿轮菜单中添加一个菜单项</span></span><br><span class="line">    <span class="comment">/// CONTEXT 固定写法</span></span><br><span class="line">    <span class="comment">/// Transform 脚本所挂载的对象上的组件</span></span><br><span class="line">    <span class="comment">/// setting 菜单名</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [MenuItem(<span class="string">"CONTEXT/Transform/setting"</span>)]</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Setting</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"this is setting"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="AddComponentMenu">AddComponentMenu</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 在Inspector面板中最下面有个 [Add Component] 按钮，点击后的菜单。</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[AddComponentMenu(<span class="string">"Test/PlugExtend"</span>)]</span><br><span class="line">public class PlugExtend : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 挂载这个脚本后编辑器状态下也能够执行这个方法</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"PlugExtend Awake function"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/AddComponentMenu.png" alt="效果图"></p>
+<p></p><h4 id="ContextMenu">ContextMenu</h4><p></p>
+<blockquote>
+<p>直接上代码上图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ContextMenu(<span class="string">"DoSomething"</span>)]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DoSomething</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//响应时做某种事情</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="../../img/UnityEditorOptions/ContextMenu.png" alt="效果图"></p>
+<p></p><h4 id="ContextMenuItem">ContextMenuItem</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 属性上右键菜单响应所调用的函数</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[ContextMenuItem(<span class="string">"Reset"</span>, <span class="string">"ResetOption"</span>)]</span><br><span class="line"><span class="keyword">public</span> string value = <span class="string">""</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ResetOption</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    value = <span class="string">"liuaf"</span>;</span><br><span class="line">    Debug.Log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/ContextMenuItem.png" alt="效果图"></p>
+<p></p><h4 id="Multiline & TextArea">Multiline &amp; TextArea</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Multiline(<span class="number">8</span>)]</span><br><span class="line"><span class="keyword">public</span> string value;</span><br><span class="line">[TextArea(<span class="number">1</span>, <span class="number">5</span>)]</span><br><span class="line"><span class="keyword">public</span> string value1;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/Multiline_TextArea.png" alt="效果图"></p>
+<p></p><h4 id="ColorUsage">ColorUsage</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Color color1;</span><br><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 没有alpha</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[ColorUsage(<span class="keyword">false</span>)]</span><br><span class="line"><span class="keyword">public</span> Color color2;</span><br><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// showAlpha           如果为false，则alpha通道信息。</span></span><br><span class="line"><span class="comment">/// HDR                 true视为HDR颜色（默认值：false）。</span></span><br><span class="line"><span class="comment">/// minBrightness       使用HDR拾色器时的最小允许HDR色彩分量值（默认值：0）。</span></span><br><span class="line"><span class="comment">/// maxBrightness       使用HDR拾色器时的最大允许HDR色彩分量值（默认值：8）。</span></span><br><span class="line"><span class="comment">/// minExposureValue    HDR颜色选择器允许的最小曝光值（默认值：1/8 = 0.125）。</span></span><br><span class="line"><span class="comment">/// maxExposureValue    HDR颜色选择器允许的最大曝光值（默认值：3）。</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[ColorUsage(<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0.125f</span>, <span class="number">3</span>)]</span><br><span class="line"><span class="keyword">public</span> Color color3;</span><br><span class="line">`</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="CreateAssetMenu & PreferBinarySerialization">CreateAssetMenu &amp; PreferBinarySerialization</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// fileName 创建的资源名</span></span><br><span class="line"><span class="comment">/// menuName create菜单中显示的菜单名</span></span><br><span class="line"><span class="comment">/// order 顺序</span></span><br><span class="line"><span class="comment">/// PreferBinarySerialization 使用二进制序列化</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[CreateAssetMenu( fileName = <span class="string">"customData.asset"</span>, menuName =<span class="string">"CustomData"</span>, order =<span class="number">10</span>)]</span><br><span class="line">[PreferBinarySerialization]</span><br><span class="line">public class CustomData : ScriptableObject</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/CreateAssetMenu.png" alt="效果图"></p>
+<p></p><h4 id="DisallowMultipleComponent">DisallowMultipleComponent</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 不允许同一个GameObject 挂载多个此脚本</span></span><br><span class="line"><span class="comment">/// 继承此脚本的对象也不可以存在多个</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[DisallowMultipleComponent]</span><br><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="Header">Header</h4><p></p>
+<h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 在属性面板中的字段添加标题</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[Header(<span class="string">"Health Settings"</span>)]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> health = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> maxHealth = <span class="number">100</span>;</span><br><span class="line">[Header(<span class="string">"Shield Settings"</span>)]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> shield = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> maxShield = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="../../img/UnityEditorOptions/Header.png" alt="效果图"></p>
+<p></p><h4 id="HelpURL">HelpURL</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 帮助文档url</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[HelpURL(<span class="string">"https://aifee.github.io"</span>)]</span><br><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="HideInInspector">HideInInspector</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 属性面板中隐藏此属性的编辑</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[HideInInspector]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> p = <span class="number">5</span>;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="Range">Range</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 限制valueInt值在 0 - 10 范围内</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [Range(<span class="number">0</span>,<span class="number">10</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> valueInt;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 限制valueFloat值在 0 - 1 范围内</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [Range(<span class="number">0</span>,<span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> valueFloat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="RequireComponent">RequireComponent</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 自动关联依赖的组件，如果没有则为这个GameObject 添加这个依赖组件</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[RequireComponent(typeof(Image))]</span><br><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="RuntimeInitializeOnLoadMethod">RuntimeInitializeOnLoadMethod</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 游戏加载运行后不需要继承MonoBehaviour也可以响应函数</span></span><br><span class="line"><span class="comment">/// 注意：能够确定的是在Awake函数后调用</span></span><br><span class="line"><span class="comment">/// 但多个这个标记时无法保证执行顺序</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewBehaviourScript</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    [RuntimeInitializeOnLoadMethod]</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">OnRuntimeMethodLoad</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"After scene is loaded and game is running"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [RuntimeInitializeOnLoadMethod]</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">OnSecondRuntimeMethodLoad</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"SecondMethod After scene is loaded and game is running."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="SelectionBase">SelectionBase</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 挂载这个脚本的对象在Scene界面选择对象时</span></span><br><span class="line"><span class="comment">/// 如果点中它的子对象时，会默认选择这个对象</span></span><br><span class="line"><span class="comment">/// 是个不错的功能，尤其场景中对象很多很乱的时候</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[SelectionBase]</span><br><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="SerializeField">SerializeField</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// private 修饰的属性，在属性面板中依然可以编辑</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [SerializeField]</span><br><span class="line">    <span class="keyword">private</span> bool hasHealthPotion = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h4 id="Space">Space</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> health = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> maxHealth = <span class="number">100</span>;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 间距像素，同 GUILayout.Space(50) 用法相似</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [Space(<span class="number">50</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> shield = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> maxShield = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/Space.png" alt="效果图"></p>
+<p></p><h4 id="Tooltip">Tooltip</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">    <span class="comment">/// 为字段添加提示，鼠标获取焦点后显示</span></span><br><span class="line">    <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">    [Tooltip(<span class="string">"Health value between 0 and 100."</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> health = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/tooltip.png" alt="效果图"></p>
+<p></p><h4 id="PreferenceItem">PreferenceItem</h4><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 官方的案例</span></span><br><span class="line"><span class="comment">/// 可以定制 Edit / Preferences 面板</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">public class NewBehaviourScript : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Have we loaded the prefs yet</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> bool prefsLoaded = <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// The Preferences</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> bool boolPreference = <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// Add preferences section named "My Preferences" to the Preferences Window</span></span><br><span class="line">    [PreferenceItem(<span class="string">"My Preferences"</span>)]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">PreferencesGUI</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Load the preferences</span></span><br><span class="line">        <span class="keyword">if</span> (!prefsLoaded)</span><br><span class="line">        &#123;</span><br><span class="line">            boolPreference = EditorPrefs.GetBool(<span class="string">"BoolPreferenceKey"</span>, <span class="keyword">false</span>);</span><br><span class="line">            prefsLoaded = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Preferences GUI</span></span><br><span class="line">        boolPreference = EditorGUILayout.Toggle(<span class="string">"Bool Preference"</span>, boolPreference);</span><br><span class="line">        <span class="comment">// Save the preferences</span></span><br><span class="line">        <span class="keyword">if</span> (GUI.changed)</span><br><span class="line">            EditorPrefs.SetBool(<span class="string">"BoolPreferenceKey"</span>, boolPreference);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<p><img src="../../img/UnityEditorOptions/Preferences.png" alt="效果图"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unity/" rel="tag"># Unity</a>
+          
+            <a href="/tags/Unity编辑器扩展/" rel="tag"># Unity编辑器扩展</a>
+          
+            <a href="/tags/Attribute/" rel="tag"># Attribute</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/26/Unity-UI预设生成代码批量动态获取组件工具/" rel="next" title="UI预设生成代码批量获取组件工具">
+                <i class="fa fa-chevron-left"></i> UI预设生成代码批量获取组件工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/05/egret-通讯模块/" rel="prev" title="egret-通讯模块(使用protobuff)">
+                egret-通讯模块(使用protobuff) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aifee</p>
+              <p class="site-description motion-element" itemprop="description">记录成长</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CustomEditor"><span class="nav-number">1.</span> <span class="nav-text">CustomEditor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ExecuteInEditMode"><span class="nav-number">2.</span> <span class="nav-text">ExecuteInEditMode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MenuItem"><span class="nav-number">3.</span> <span class="nav-text">MenuItem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AddComponentMenu"><span class="nav-number">4.</span> <span class="nav-text">AddComponentMenu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ContextMenu"><span class="nav-number">5.</span> <span class="nav-text">ContextMenu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ContextMenuItem"><span class="nav-number">6.</span> <span class="nav-text">ContextMenuItem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiline & TextArea"><span class="nav-number">7.</span> <span class="nav-text">Multiline &amp; TextArea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ColorUsage"><span class="nav-number">8.</span> <span class="nav-text">ColorUsage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CreateAssetMenu & PreferBinarySerialization"><span class="nav-number">9.</span> <span class="nav-text">CreateAssetMenu &amp; PreferBinarySerialization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DisallowMultipleComponent"><span class="nav-number">10.</span> <span class="nav-text">DisallowMultipleComponent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Header"><span class="nav-number">11.</span> <span class="nav-text">Header</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Header"><span class="nav-number">12.</span> <span class="nav-text">Header</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HelpURL"><span class="nav-number">13.</span> <span class="nav-text">HelpURL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HideInInspector"><span class="nav-number">14.</span> <span class="nav-text">HideInInspector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Range"><span class="nav-number">15.</span> <span class="nav-text">Range</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RequireComponent"><span class="nav-number">16.</span> <span class="nav-text">RequireComponent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RuntimeInitializeOnLoadMethod"><span class="nav-number">17.</span> <span class="nav-text">RuntimeInitializeOnLoadMethod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SelectionBase"><span class="nav-number">18.</span> <span class="nav-text">SelectionBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SerializeField"><span class="nav-number">19.</span> <span class="nav-text">SerializeField</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Space"><span class="nav-number">20.</span> <span class="nav-text">Space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tooltip"><span class="nav-number">21.</span> <span class="nav-text">Tooltip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PreferenceItem"><span class="nav-number">22.</span> <span class="nav-text">PreferenceItem</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aifee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
