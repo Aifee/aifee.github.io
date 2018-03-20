@@ -53,7 +53,7 @@ public class PlugExtend : MonoBehaviour
     public float max;
 }
 ```
-![效果图](../../img/UnityEditorOptions/CustomEditor.png)
+![效果图](/img/UnityEditorOptions/CustomEditor.png)
 
 <h4 id="ExecuteInEditMode">ExecuteInEditMode</h4>
 ```java
@@ -138,7 +138,7 @@ public class PlugExtend : MonoBehaviour
     }
 }
 ```
-![效果图](../../img/UnityEditorOptions/AddComponentMenu.png)
+![效果图](/img/UnityEditorOptions/AddComponentMenu.png)
 
 <h4 id="ContextMenu">ContextMenu</h4>
 > 直接上代码上图
@@ -149,7 +149,7 @@ public void DoSomething()
     //响应时做某种事情
 }
 ```
-![效果图](../../img/UnityEditorOptions/ContextMenu.png)
+![效果图](/img/UnityEditorOptions/ContextMenu.png)
 
 
 <h4 id="ContextMenuItem">ContextMenuItem</h4>
@@ -165,7 +165,7 @@ void ResetOption()
     Debug.Log(value);
 }
 ```
-![效果图](../../img/UnityEditorOptions/ContextMenuItem.png)
+![效果图](/img/UnityEditorOptions/ContextMenuItem.png)
 
 <h4 id="Multiline & TextArea">Multiline & TextArea</h4>
 ```java
@@ -174,7 +174,7 @@ public string value;
 [TextArea(1, 5)]
 public string value1;
 ```
-![效果图](../../img/UnityEditorOptions/Multiline_TextArea.png)
+![效果图](/img/UnityEditorOptions/Multiline_TextArea.png)
 
 <h4 id="ColorUsage">ColorUsage</h4>
 ``` java
@@ -210,7 +210,7 @@ public class CustomData : ScriptableObject
 {
 }
 ```
-![效果图](../../img/UnityEditorOptions/CreateAssetMenu.png)
+![效果图](/img/UnityEditorOptions/CreateAssetMenu.png)
 
 <h4 id="DisallowMultipleComponent">DisallowMultipleComponent</h4>
 ``` java
@@ -237,7 +237,7 @@ public int maxHealth = 100;
 public int shield = 0;
 public int maxShield = 0;
 ```
-![效果图](../../img/UnityEditorOptions/Header.png)
+![效果图](/img/UnityEditorOptions/Header.png)
 
 <h4 id="HelpURL">HelpURL</h4>
 ``` java
@@ -349,7 +349,7 @@ public class NewBehaviourScript : MonoBehaviour
     public int maxShield = 0;
 }
 ```
-![效果图](../../img/UnityEditorOptions/Space.png)
+![效果图](/img/UnityEditorOptions/Space.png)
 
 <h4 id="Tooltip">Tooltip</h4>
 ``` java
@@ -362,7 +362,7 @@ public class NewBehaviourScript : MonoBehaviour
     public int health = 0;
 }
 ```
-![效果图](../../img/UnityEditorOptions/tooltip.png)
+![效果图](/img/UnityEditorOptions/tooltip.png)
 
 <h4 id="PreferenceItem">PreferenceItem</h4>
 ``` java
@@ -394,4 +394,4 @@ public class NewBehaviourScript : MonoBehaviour
     }
 }
 ```
-![效果图](../../img/UnityEditorOptions/Preferences.png)
+![效果图](/img/UnityEditorOptions/Preferences.png)
