@@ -2,6 +2,7 @@
 title: egret-通讯模块(使用protobuff)
 author: liuaf
 toc: true
+categories: 白鹭
 tags:
      - egret
      - webSocket

@@ -2,6 +2,7 @@
 title: Unity中常用的Attribute标签
 author: liuaf
 toc: true
+categories: Unity编辑器
 tags:
      - Unity
      - Unity编辑器扩展

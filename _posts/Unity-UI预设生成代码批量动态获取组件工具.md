@@ -1,6 +1,7 @@
 ---
 title: UI预设生成代码批量获取组件工具
 author: liuaf
+categories: Unity编辑器
 tags:
      - Unity
      - Unity编辑器扩展
