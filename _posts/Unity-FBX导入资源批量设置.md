@@ -10,7 +10,7 @@ tags:
 ---
 
 ### 一、插件下载
-> 下载[插件地址](/download/FbxImporter.dll)导入工程中
+> 下载[插件地址](https://pan.baidu.com/s/1m3626xGDimYsLbrp-XxYSg)导入工程中
 
 <!--more-->
 
