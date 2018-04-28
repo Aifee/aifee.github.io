@@ -10,7 +10,7 @@ tags:
 ---
 
 ### 一、插件下载
-> 下载![插件地址](/download/FbxImporter.dll)
+> 下载[插件地址](/download/FbxImporter.dll)导入工程中
 
 <!--more-->
 
