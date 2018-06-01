@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="插件,Egret," />
+  <meta name="keywords" content="Egret,插件," />
 
 
 
@@ -124,14 +124,14 @@
 
 
 <meta name="description" content="一、前言 众所周知，白鹭的Wing是基于在VSCode上进行开发的，不过Wing用起来始终怪怪的，而且还有各种bug，相信它在发展一段时间后能够更加完善。既然有这么多bug，还不如用原生的VSCode来的舒服，大不了EUI的Skin用Wing来编辑。">
-<meta name="keywords" content="插件,Egret">
+<meta name="keywords" content="Egret,插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VSCode&amp;Chrome进行Egret开发">
 <meta property="og:url" content="http://aifee.github.io/2018/06/01/Egret-使用VSCode&Chrome进行开发/index.html">
 <meta property="og:site_name" content="Aifee">
 <meta property="og:description" content="一、前言 众所周知，白鹭的Wing是基于在VSCode上进行开发的，不过Wing用起来始终怪怪的，而且还有各种bug，相信它在发展一段时间后能够更加完善。既然有这么多bug，还不如用原生的VSCode来的舒服，大不了EUI的Skin用Wing来编辑。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T08:55:52.590Z">
+<meta property="og:updated_time" content="2018-06-01T08:59:26.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VSCode&amp;Chrome进行Egret开发">
 <meta name="twitter:description" content="一、前言 众所周知，白鹭的Wing是基于在VSCode上进行开发的，不过Wing用起来始终怪怪的，而且还有各种bug，相信它在发展一段时间后能够更加完善。既然有这么多bug，还不如用原生的VSCode来的舒服，大不了EUI的Skin用Wing来编辑。">
@@ -404,13 +404,12 @@
 </blockquote>
 <a id="more"></a>
 <h3 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h3><blockquote>
-<p>VSCode<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网下载地址</a></p>
-<p><debugger for="" chrome=""><br>EgretCode<br>nginx<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">官方下载地址</a></debugger></p>
+<p>VSCode<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网下载地址</a><br>Debugger for Chrome (VSCode中下载)<br>EgretCode (VSCode中下载)<br>nginx<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">官方下载地址</a></p>
 </blockquote>
 <h3 id="三、基础环境配置"><a href="#三、基础环境配置" class="headerlink" title="三、基础环境配置"></a>三、基础环境配置</h3><blockquote>
-<p>Egret社区已经有一片很好的教程[使用VSCode 编译，断点调试Egret项目]{<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=24635&amp;highlight=vscode}" target="_blank" rel="noopener">http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=24635&amp;highlight=vscode}</a><br>但有个遗憾，根据他的教程进行配置后，每次调试启动时都要进行 Egret StartServer / Run<br>那么重点来了，我们只解决使用F5就可以进行调试的方式就行。<br>使用nginx来反向代理一个服务器</p>
+<p>Egret社区已经有一片很好的教程<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=24635&amp;highlight=vscode" target="_blank" rel="noopener">使用VSCode 编译，断点调试Egret项目</a><br>但有个遗憾，根据他的教程进行配置后，每次调试启动时都要进行 Egret StartServer / Run<br>使用nginx来反向代理一个服务器</p>
 </blockquote>
-<p>nginx.conf配置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location /项目名 &#123;</span><br><span class="line">    alias  工程目录;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line"></span><br><span class="line">    autoindex on;</span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line">    autoindex_localtime on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="四、nginx-conf配置"><a href="#四、nginx-conf配置" class="headerlink" title="四、nginx.conf配置"></a>四、nginx.conf配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location /项目名 &#123;</span><br><span class="line">    alias  工程目录;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line"></span><br><span class="line">    autoindex on;</span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line">    autoindex_localtime on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>到此就可以直接F5进行Chrome调试了。不过上面中没有提到在Chrome中像Wing一样的查看当前舞台中的对象，其实白鹭官方已经给过插件了，只是没有注意而已。<br>找到下载好的 Egret Inspector文件解压后有一个EgretInspector-install文件夹，在Chrome设置中 更多工具-扩展工具 点击 加载已解压的扩展程序，找到解压后的EgretInspector-install文件夹。<br>F5运行游戏后，F12打开开发者工具后，菜单项中会出现一个Egret项，这里就和Wing工具中的舞台一样。</p>
 </blockquote>
@@ -468,9 +467,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/插件/" rel="tag"># 插件</a>
-          
             <a href="/tags/Egret/" rel="tag"># Egret</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
           
         </div>
       
@@ -643,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、准备工作"><span class="nav-number">2.</span> <span class="nav-text">二、准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基础环境配置"><span class="nav-number">3.</span> <span class="nav-text">三、基础环境配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、准备工作"><span class="nav-number">2.</span> <span class="nav-text">二、准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基础环境配置"><span class="nav-number">3.</span> <span class="nav-text">三、基础环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、nginx-conf配置"><span class="nav-number">4.</span> <span class="nav-text">四、nginx.conf配置</span></a></li></ol></div>
             
 
           </div>
